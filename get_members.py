@@ -12,9 +12,8 @@ def get_isa(obj, num):
 if __name__ == "__main__":
 
     word = "vehicle"
-    limit = 100
 
-    api = "http://api.conceptnet.io/c/en/" + word + "?rel=/r/IsA&limit=" + limit
+    api = "http://api.conceptnet.io/c/en/" + word + "?rel=/r/IsA&limit=100" 
     obj = requests.get(api).json()
 
     json = obj["edges"]
