@@ -21,4 +21,4 @@ if __name__ == "__main__":
    
     words = get_isa(json, num)
 
-    print(words)
+    print(list(set(words)))
