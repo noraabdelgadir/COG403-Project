@@ -9,6 +9,19 @@ def get_isa(obj, num):
 
     return words
 
+# cross reference words with MUSE
+muse = []
+f = open("en-en.txt", "r")
+for line in f.readlines():
+    muse.append(line.split('\t')[0])
+
+def muse_check(words):
+    checked = []
+    for word in words:
+        if word in muse:
+            checked.append(word)
+    return checked
+
 if __name__ == "__main__":
 
     word = "vehicle"
@@ -21,4 +34,4 @@ if __name__ == "__main__":
    
     words = get_isa(json, num)
 
-    print(list(set(words)))
+    print(muse_check(list(set(words))))
