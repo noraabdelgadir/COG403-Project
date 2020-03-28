@@ -13,6 +13,7 @@ Despite how bilingualism is common throughout the world, with around half of the
 
 |  Nora Abdelgadir  | Shyamolima Debnath |
 | :---------------: | :----------------: |
-| [![noraabdelgadir]](https://github.com/noraabdelgadir) | placeholder |
+| [![noraabdelgadir]](https://github.com/noraabdelgadir) | [![shammied]](https://github.com/shammied) |
 
 [noraabdelgadir]: https://avatars1.githubusercontent.com/u/35353626?s=60&v=3 
+[shammied]: https://avatars0.githubusercontent.com/u/23609063?s=60&v=3
