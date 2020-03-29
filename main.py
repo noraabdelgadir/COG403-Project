@@ -39,18 +39,27 @@ for i in range(len(answers["categories"])):
 
 translated_members = {} 
 translated_categories = {}
+categories_to_remove = []
 
 for cat in members:
-    c = list(get_translations(lang, [cat]).values())[0][0]
-    translated_categories[cat] = c
-    translated_members[c] = []
-    for word in members[cat]:
-        translation = list(get_translations(lang, [word]).values())
-        if(not translation):
-            # word can't be translated
-            members[cat].remove(word)
-        else:
-            translated_members[c].extend(translation[0])
+    translated_cat = get_translations(lang, [cat]).values()
+    if not translated_cat:
+        categories_to_remove.append(cat)
+    else:
+        c = list(translated_cat)[0][0]
+        translated_categories[cat] = c
+        translated_members[c] = []
+        for word in members[cat]:
+            translation = list(get_translations(lang, [word]).values())
+            if(not translation):
+                # word can't be translated
+                members[cat].remove(word)
+            else:
+                translated_members[c].extend(translation[0])
+
+# category doesn't exist in translation language
+for cat in categories_to_remove:
+    del members[cat]
 
 import pandas as pd
 import numpy as np
@@ -136,6 +145,7 @@ centres = Kmean.cluster_centers_
 colours = ['c', 'g', 'y', 'm', 'k', '#AE5845', '#92C7AC', '#6D0240', '#F0B577', '#3A99AC', 
             '#FC0142', '#FC3E01', '#FCDA01', '#C3FC01', '#36FC01', '#01FC8E', '#01B7FC',
             '#0177FC', '#1F01FC', 'r', 'b', '#FFBAC2', '#91FB8C', '#8CB1FB', '#FB8CF6']
+
 for i in range(len(centres)):
     plt.scatter(centres[i][0], centres[i][1], s=400, c=colours[i], marker='s')
 
