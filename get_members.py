@@ -1,10 +1,16 @@
 import requests
 
-def get_isa(obj, num):
+def get_isa(word):
+    api = "http://api.conceptnet.io/c/en/" + word + "?rel=/r/IsA&limit=100" 
+    obj = requests.get(api).json()
+
+    json = obj["edges"]
+    num = len(json)
+
     words = []
     for i in range(num):
-        if obj[i]['rel']['@id'] == "/r/IsA":
-            w = (obj[i]['start']['term']).split('/')[-1]
+        if json[i]['rel']['@id'] == "/r/IsA":
+            w = (json[i]['start']['term']).split('/')[-1]
             words.append(w)
 
     return words
@@ -25,13 +31,7 @@ def muse_check(words):
 if __name__ == "__main__":
 
     word = "vehicle"
-
-    api = "http://api.conceptnet.io/c/en/" + word + "?rel=/r/IsA&limit=100" 
-    obj = requests.get(api).json()
-
-    json = obj["edges"]
-    num = len(json)
    
-    words = get_isa(json, num)
+    words = get_isa(word)
 
     print(muse_check(list(set(words))))
