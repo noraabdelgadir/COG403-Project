@@ -13,11 +13,8 @@ def translate(lang):
     
     return translations
 
-en_ar = translate('ar')
-en_fr = translate('fr')
-
 def get_translations(lang, words):
-    translations = en_ar if lang == 'ar' else en_fr
+    translations = translate(lang)
     translated = {}
     for word in words:
         if word in translations:
