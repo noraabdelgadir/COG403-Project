@@ -116,6 +116,9 @@ class KMeansClustering:
 
         plt.show()
     
+    def get_members(self):
+        return self.members
+    
     def get_clustered_members(self):
         categorized_clusters = {}
         for cluster, membs in self.clustered_members.items():
