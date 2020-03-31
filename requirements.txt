@@ -3,3 +3,4 @@ inquirer
 numpy
 sklearn
 matplotlib
+bert_serving
