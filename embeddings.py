@@ -22,8 +22,9 @@ class Glove(Embedding):
                 values = line.split()
                 word = values[0]
                 vector = np.asarray(values[1:], "float32")
-                embeddings_dict[word] =vector
-        vectors = [embeddings_dict[w] for w in self.word_list]
+                if word in self.word_list:
+                    embeddings_dict[word] =vector
+        vectors = list(embeddings_dict.values())
         return vectors 
 
 class Bert(Embedding):

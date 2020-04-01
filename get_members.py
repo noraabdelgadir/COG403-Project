@@ -1,7 +1,7 @@
 import requests
 
 def get_isa(word):
-    api = "http://api.conceptnet.io/c/en/" + word + "?rel=/r/IsA&limit=100" 
+    api = "http://api.conceptnet.io/c/en/" + word + "?rel=/r/IsA&limit=1000" 
     obj = requests.get(api).json()
 
     json = obj["edges"]
@@ -21,12 +21,14 @@ f = open("en-en.txt", "r")
 for line in f.readlines():
     muse.append(line.split('\t')[0])
 
+
 def muse_check(words):
     checked = []
     for word in words:
         if word in muse:
             checked.append(word)
     return checked
+
 
 if __name__ == "__main__":
 
