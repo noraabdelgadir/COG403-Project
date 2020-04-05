@@ -1,5 +1,4 @@
 from bert_serving.client import BertClient
-# from get_members import get_isa, muse_check
 import pandas as pd 
 import numpy as np 
 import io 
@@ -32,7 +31,7 @@ class Bert(Embedding):
     def get_embeddings(self):
         bc = BertClient()
         array = bc.encode(self.word_list)
-
+        
         return array 
 
 class Word2VecMuse(Embedding):

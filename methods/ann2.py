@@ -1,7 +1,8 @@
 import numpy as np 
 np.random.seed(42)
-from embeddings import Embedding, Bert, Glove, Word2VecMuse
-from get_members import get_isa, muse_check
+from helpers.embeddings import Embedding, Bert, Glove, Word2VecMuse
+from helpers.get_members import get_isa, muse_check
+from helpers.helper import CATEGORY_TO_LIST
 from keras.models import Sequential
 from keras.layers import Dense 
 
@@ -26,8 +27,8 @@ else:
 
 print(MODEL, DIM)
 # DATA 
-categories = ['insect', 'shape', 'weather', 'food', 'bird', 'mammal', 'colour', 'plant', 'country', 'sport', 'vehicle']
-translation = ['insecte', 'forme', 'météo', 'nourriture', 'oiseau', 'mammifère', 'couleur', 'plante', 'pays', 'sport', 'véhicule']
+categories = ['insect', 'shape', 'weather', 'food', 'bird', 'mammal', 'colour', 'flower', 'country',  'vehicle', 'sport',]
+translation = ['insecte', 'forme', 'météo', 'nourriture', 'oiseau', 'mammifère', 'couleur', 'fleur', 'pays', 'véhicule', 'sport',]
 #t = get_translations('fr', categories)
 #print(t)
 
@@ -45,20 +46,21 @@ bird= ['coucou','perdrix','mallard','starling','cygne','faucon','albatros','touc
 mammal= ['tamarin','bovins', 'bétail','girafe','cerf','biche','baleine','babouin','fouine','léopard','mouton']
 # colour 6
 colour= ['orange','beige','couleur','cyan','rouge','mauve','verte', 'vert', 'violette', 'pourpre', 'violet', 'cobalt', 'magenta', 'azur', 'jaune', 'bleu', 'bleue']
-# plant 7
-plant= ['if', 'récolte', 'phytoplancton', 'iris', 'cyprès', 'algues']
+# flower 7
+flower = ['if', 'récolte', 'phytoplancton', 'iris', 'cyprès', 'algues']
 # country 8
 country= ['amérique', 'turquie', 'belgique', 'pays', 'irlande', 'portugal', 'égypte', 'mongolie', 'islande', 'corée', 'irak', 'lesotho', 'chili', 'brésil']
-# sport 9
-sport= ['cheerleading', 'voile', 'squash', 'surf', 'biathlon', 'golf', 'aviron', 'lutte', 'volley', 'course', 'pêche', 'football', 'sumo']
-# vehicle 10
+# vehicle 9
 vehicle = ['voilier', 'vélo', 'bicyclette', 'navire', 'vaisseau', 'camionnette', 'fourgonnette', 'fourgon', 'camion', 'voiture', 'chariot', 'charrette', 'bateau', 'canot', 'traîneau', 'kayak']
+# sport 10
+sport= ['cheerleading', 'voile', 'squash', 'surf', 'biathlon', 'golf', 'aviron', 'lutte', 'volley', 'course', 'pêche', 'football', 'sumo']
 
-translate = insect + shape + weather + food + bird + mammal + colour + plant + country + sport + vehicle
-x_test_dict = {'insect': insect, 'shape': shape, 'weather': weather, 'food': food, 'bird': bird, 'mammal': mammal, 'colour': colour, 'plant': plant, 'country': country, 'sport':sport, 'vehicle': vehicle} 
-catmap = {'insect': 0, 'shape':1, 'weather': 2, 'food': 3, 'bird': 4, 'mammal': 5, 'colour': 6, 'plant': 7, 'country': 8, 'sport':9, 'vehicle': 10} 
-y_true_tr = [0]*len(insect) + [1]*len(shape) + [2]*len(weather) + [3]*len(food) + [4]*len(bird) + [5]*len(mammal) + [6]*len(colour) + [7]*len(plant) + [8]*len(country) + [9]*len(sport) + [10]*len(vehicle)
-y_true_class = ['insect']*len(insect) + ['shape']*len(shape) + ['weather']*len(weather) + ['food']*len(food) + ['bird']*len(bird) + ['mammal']*len(mammal) + ['colour']*len(colour) + ['plant']*len(plant) + ['country']*len(country) + ['sport']*len(sport) + ['vehicle']*len(vehicle)
+
+translate = insect + shape + weather + food + bird + mammal + colour + flower + country + vehicle + sport
+x_test_dict = {'insect': insect, 'shape': shape, 'weather': weather, 'food': food, 'bird': bird, 'mammal': mammal, 'colour': colour, 'flower': flower, 'country': country, 'vehicle': vehicle, 'sport':sport,} 
+catmap = {'insect': 0, 'shape':1, 'weather': 2, 'food': 3, 'bird': 4, 'mammal': 5, 'colour': 6, 'flower': 7, 'country': 8, 'vehicle': 9, 'sport': 10} 
+y_true_tr = [0]*len(insect) + [1]*len(shape) + [2]*len(weather) + [3]*len(food) + [4]*len(bird) + [5]*len(mammal) + [6]*len(colour) + [7]*len(flower) + [8]*len(country) + [9]*len(vehicle) + [10]*len(sport)
+y_true_class = ['insect']*len(insect) + ['shape']*len(shape) + ['weather']*len(weather) + ['food']*len(food) + ['bird']*len(bird) + ['mammal']*len(mammal) + ['colour']*len(colour) + ['flower']*len(flower) + ['country']*len(country) + ['vehicle']*len(vehicle) + ['sport']*len(sport)
 
 #  GET EMBEDDINGS AND RETURN IN DATAFRAME
 def get_embeddings(type, word_list, path=None, lang=None, cat=None):
@@ -71,7 +73,7 @@ def get_embeddings(type, word_list, path=None, lang=None, cat=None):
         m = Glove(word_list, path)
         e = m.get_embeddings()
     else: 
-        path = "models/" + type + "/categories/" + lang + "_" + cat + ".txt"
+        path = "models/" + type + "/categories/" + lang + "/" + cat + ".txt"
         m = Word2VecMuse(word_list, path)
         e = m.get_embeddings()
     
@@ -82,7 +84,8 @@ df = pd.DataFrame()
 cat = []
 for c in categories:
     print(c)
-    word_list = list(set(muse_check(get_isa(c))))[:14]
+    word_list = CATEGORY_TO_LIST[c]
+    # word_list = list(set(muse_check(get_isa(c))))[:14]
     # if MODEL=='Glove':
     #     word_list = glove_check(word_list)
     print(word_list)
@@ -91,7 +94,7 @@ for c in categories:
     print(len(word_list))
     embs = get_embeddings(MODEL, word_list, lang='en', cat=c)
     
-    if MODEL == "bert" or MODEL == "glove":
+    if MODEL == "bert":
         df = df.append(embs)
         cat.append(embs.shape[0])
     else:
