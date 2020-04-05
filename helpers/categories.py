@@ -1,7 +1,7 @@
 # all categories
-CATEGORIES = ['insect', 'shape', 'weather', 'food', 'bird', 'mammal', 'colour', 'flower', 'country', 'sport', 'vehicle']
+CATEGORIES = ['insect', 'shape', 'weather', 'food', 'bird', 'mammal', 'colour', 'flower', 'country', 'vehicle', 'sport',]
 
-FR_CATEGORIES = ['insecte', 'forme', 'météo', 'nourriture', 'oiseau', 'mammifère', 'couleurs', 'fleur', 'pays', 'sport', 'véhicule']
+FR_CATEGORIES = ['insecte', 'forme', 'météo', 'nourriture', 'oiseau', 'mammifère', 'couleurs', 'fleur', 'pays', 'véhicule', 'sport',]
 EN_FR_CATEGORIES = {
     'insect': 'insecte', 
     'shape': 'forme', 
@@ -12,11 +12,11 @@ EN_FR_CATEGORIES = {
     'colour': 'couleurs', 
     'flower': 'fleur', 
     'country': 'pays', 
-    'sport': 'sport', 
-    'vehicle': 'véhicule'
+    'vehicle': 'véhicule',
+    'sport': 'sport'
 }
 
-AR_CATEGORIES = ['حشرة', 'شكل', 'الجو', 'طعام', 'طير', 'ثديي', 'لون', 'زهرة', 'بلد', 'رياضة', 'عربة']
+AR_CATEGORIES = ['حشرة', 'شكل', 'الجو', 'طعام', 'طير', 'ثديي', 'لون', 'زهرة', 'بلد', 'عربة']
 EN_AR_CATEGORIES = {
     'insect': 'حشرة', 
     'shape': 'شكل', 
@@ -27,7 +27,6 @@ EN_AR_CATEGORIES = {
     'colour': 'لون',
     'flower': 'زهرة', 
     'country': 'بلد', 
-    'sport': 'رياضة',
     'vehicle': 'عربة'
 }
 
@@ -346,6 +345,41 @@ EN_AR_COUNTRIES = {
     'canada': 'كندا'
 }
 
+# vehicles
+VEHICLES = ['truck', 'airplane', 'boat', 'bicycle', 'car', 'van', 'tractor', 'canoe', 'bus', 'taxi', 'train', 'motorcycle']
+
+FR_VEHICLES = ['camion', 'avion', 'bateau', 'vélo', 'voiture', 'camionnette', 'tracteur', 'canoë', 'bus', 'taxi', 'train', 'moto']
+EN_FR_VEHICLES = {
+    'truck': 'camion', 
+    'airplane': 'avion', 
+    'boat': 'bateau', 
+    'bicycle': 'vélo',
+    'car': 'voiture', 
+    'van': 'camionnette',
+    'tractor': 'tracteur', 
+    'canoe': 'canoë',
+    'bus': 'bus', 
+    'taxi': 'taxi', 
+    'train': 'train', 
+    'motorcycle': 'moto'
+}
+
+AR_VEHICLES = ['شاحنة', 'طائرة', 'قارب', 'دراجة', 'سيارة', 'فان', 'جرار', 'زورق', 'حافلة', 'تاكسي', 'قطار', 'دراجة']
+EN_AR_VEHICLES = {
+    'truck': 'شاحنة', 
+    'airplane': 'طائرة', 
+    'boat': 'قارب', 
+    'bicycle': 'دراجة', 
+    'car': 'سيارة', 
+    'van': 'فان', 
+    'tractor': 'جرار', 
+    'canoe': 'زورق', 
+    'bus': 'حافلة', 
+    'taxi': 'تاكسي', 
+    'train': 'قطار', 
+    'motorcycle': 'دراجة'
+}
+
 # sports
 SPORTS = ['snowboarding', 'football', 'badminton', 'tennis', 'soccer', 'volleyball', 'skating', 'cycling', 'golf', 'baseball', 'swimming', 'hockey']
 
@@ -381,37 +415,7 @@ EN_FR_SPORTS = {
 #     'hockey': 'هوكي'
 # }
 
-# vehicles
-VEHICLES = ['truck', 'airplane', 'boat', 'bicycle', 'car', 'van', 'tractor', 'canoe', 'bus', 'taxi', 'train', 'motorcycle']
-
-FR_VEHICLES = ['camion', 'avion', 'bateau', 'vélo', 'voiture', 'camionnette', 'tracteur', 'canoë', 'bus', 'taxi', 'train', 'moto']
-EN_FR_VEHICLES = {
-    'truck': 'camion', 
-    'airplane': 'avion', 
-    'boat': 'bateau', 
-    'bicycle': 'vélo',
-    'car': 'voiture', 
-    'van': 'camionnette',
-    'tractor': 'tracteur', 
-    'canoe': 'canoë',
-    'bus': 'bus', 
-    'taxi': 'taxi', 
-    'train': 'train', 
-    'motorcycle': 'moto'
-}
-
-AR_VEHICLES = ['شاحنة', 'طائرة', 'قارب', 'دراجة', 'سيارة', 'فان', 'جرار', 'زورق', 'حافلة', 'تاكسي', 'قطار', 'دراجة']
-EN_AR_VEHICLES = {
-    'truck': 'شاحنة', 
-    'airplane': 'طائرة', 
-    'boat': 'قارب', 
-    'bicycle': 'دراجة', 
-    'car': 'سيارة', 
-    'van': 'فان', 
-    'tractor': 'جرار', 
-    'canoe': 'زورق', 
-    'bus': 'حافلة', 
-    'taxi': 'تاكسي', 
-    'train': 'قطار', 
-    'motorcycle': 'دراجة'
-}
+# list with all categories for each language
+CATEGORIES_LIST = [INSECTS, SHAPES, WEATHER, FOOD, BIRDS, MAMMALS, COLOURS, FLOWERS, COUNTRIES, VEHICLES, SPORTS]
+FR_CATEGORIES_LIST = [FR_INSECTS, FR_SHAPES, FR_WEATHER, FR_FOOD, FR_BIRDS, FR_MAMMALS, FR_COLOURS, FR_FLOWERS, FR_COUNTRIES, FR_VEHICLES, FR_SPORTS,]
+AR_CATEGORIES_LIST = [AR_INSECTS, AR_SHAPES, AR_WEATHER, AR_FOOD, AR_BIRDS, AR_MAMMALS, AR_COLOURS, AR_FLOWERS, AR_COUNTRIES, AR_VEHICLES]
