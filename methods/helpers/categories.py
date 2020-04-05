@@ -1,5 +1,5 @@
 # all categories
-CATEGORIES = ['insect', 'shape', 'weather', 'food', 'bird', 'mammal', 'colour', 'flower', 'country', 'vehicle', 'sport',]
+CATEGORIES = ['insect', 'shape', 'weather', 'food', 'bird', 'mammal', 'colour', 'flower', 'country', 'vehicle', 'sport']
 
 FR_CATEGORIES = ['insecte', 'forme', 'météo', 'nourriture', 'oiseau', 'mammifère', 'couleurs', 'fleur', 'pays', 'véhicule', 'sport',]
 EN_FR_CATEGORIES = {
@@ -15,6 +15,19 @@ EN_FR_CATEGORIES = {
     'vehicle': 'véhicule',
     'sport': 'sport'
 }
+FR_EN_CATEGORIES = {
+    'insecte': 'insect', 
+    'forme': 'shape', 
+    'météo': 'weather', 
+    'nourriture': 'food', 
+    'oiseau': 'bird', 
+    'mammifère':'mammal', 
+    'couleurs': 'colour', 
+    'fleur': 'flower', 
+    'pays': 'country', 
+    'véhicule': 'vehicle',
+    'sport': 'sport'
+}
 
 AR_CATEGORIES = ['حشرة', 'شكل', 'الجو', 'طعام', 'طير', 'ثديي', 'لون', 'زهرة', 'بلد', 'عربة']
 EN_AR_CATEGORIES = {
@@ -28,6 +41,18 @@ EN_AR_CATEGORIES = {
     'flower': 'زهرة', 
     'country': 'بلد', 
     'vehicle': 'عربة'
+}
+AR_EN_CATEGORIES = {
+    'حشرة': 'insect', 
+    'شكل':'shape', 
+    'الجو': 'weather', 
+    'طعام': 'food', 
+    'طير': 'bird', 
+    'ثديي': 'mammal', 
+    'لون': 'colour',
+    'زهرة': 'flower', 
+    'بلد': 'country', 
+    'عربة': 'vehicle'
 }
 
 # insects
@@ -119,7 +144,7 @@ EN_FR_WEATHER = {
     'cloudy': 'nuageux'
 }
 
-AR_WEATHER = ['رياح', 'التساقط', 'مطر', 'اعصار', 'ضباب', 'الامطار', 'جفاف', 'مشمس', 'ثلج', '', 'سحابة', 'غائم']
+AR_WEATHER = ['رياح', 'التساقط', 'مطر', 'اعصار', 'ضباب', 'الامطار', 'جفاف', 'مشمس', 'ثلج', 'ثلج', 'سحابة', 'غائم']
 EN_AR_WEATHER = {
     'wind': 'رياح', 
     'precipitation': 'التساقط', 
@@ -130,7 +155,7 @@ EN_AR_WEATHER = {
     'drought': 'جفاف',
     'sunny': 'مشمس', 
     'snow': 'ثلج', 
-    'hail': '',
+    'hail': 'ثلج',
     'cloud': 'سحابة', 
     'cloudy': 'غائم'
 }
@@ -294,14 +319,14 @@ EN_FR_FLOWERS = {
     'rose': 'rose',
 }
 
-AR_FLOWERS = ['الهندباء', 'ايرس', 'بطونية', 'خصي', 'دايزي', '', 'الخزامى', 'خشخاش', 'فيوليت', 'لوتس', 'ليلى', 'وردة']
+AR_FLOWERS = ['الهندباء', 'ايرس', 'بطونية', 'خصي', 'دايزي', 'الشمس', 'الخزامى', 'خشخاش', 'فيوليت', 'لوتس', 'ليلى', 'وردة']
 EN_AR_FLOWERS = {
     'dandelion': 'الهندباء', 
     'iris': 'ايرس', 
     'petunia': 'بطونية',
     'orchid': 'خصي',
     'daisy': 'دايزي', 
-    'sunflower': '',
+    'sunflower': 'الشمس',
     'tulip': 'الخزامى', 
     'poppy': 'خشخاش', 
     'violet': 'فيوليت', 

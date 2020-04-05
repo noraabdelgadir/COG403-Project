@@ -1,4 +1,5 @@
 import requests
+import os.path
 
 def get_isa(obj, num):
     words = []
@@ -11,7 +12,7 @@ def get_isa(obj, num):
 
 # cross reference words with MUSE
 muse = []
-f = open("en-en.txt", "r")
+f = open(os.path.dirname(__file__) + "/en-en.txt", "r")
 for line in f.readlines():
     muse.append(line.split('\t')[0])
 
