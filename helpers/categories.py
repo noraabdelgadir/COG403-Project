@@ -1,5 +1,6 @@
 # all categories
 CATEGORIES = ['insect', 'shape', 'weather', 'food', 'bird', 'mammal', 'colour', 'flower', 'country', 'sport', 'vehicle']
+
 FR_CATEGORIES = ['insecte', 'forme', 'météo', 'nourriture', 'oiseau', 'mammifère', 'couleurs', 'fleur', 'pays', 'sport', 'véhicule']
 EN_FR_CATEGORIES = {
     'insect': 'insecte', 
@@ -15,8 +16,24 @@ EN_FR_CATEGORIES = {
     'vehicle': 'véhicule'
 }
 
+AR_CATEGORIES = ['حشرة', 'شكل', 'الجو', 'طعام', 'طير', 'ثديي', 'لون', 'زهرة', 'بلد', 'رياضة', 'عربة']
+EN_AR_CATEGORIES = {
+    'insect': 'حشرة', 
+    'shape': 'شكل', 
+    'weather': 'الجو', 
+    'food': 'طعام', 
+    'bird': 'طير', 
+    'mammal': 'ثديي', 
+    'colour': 'لون',
+    'flower': 'زهرة', 
+    'country': 'بلد', 
+    'sport': 'رياضة',
+    'vehicle': 'عربة'
+}
+
 # insects
 INSECTS = ['firefly', 'spider', 'flea', 'ant', 'butterfly', 'locust', 'wasp', 'beetle', 'roach', 'fly', 'pupa', 'bee']
+
 FR_INSECTS = ['lucioles', 'araignée', 'puce', 'fourmi', 'papillon', 'criquet', 'guêpe', 'scarabée', 'cafard', 'mouche', 'moustique', 'abeille']
 EN_FR_INSECTS = {
     'firefly': 'lucioles', 
@@ -33,8 +50,25 @@ EN_FR_INSECTS = {
     'bee': 'abeille'
 }
 
+AR_INSECTS = ['يراعة', 'عنكبوت', 'فلي', 'نمل', 'فراشة', 'جراد', 'دبور', 'الخنفساء', 'روش', 'ذبابة', 'بعوض', 'نحل']
+EN_AR_INSECTS = {
+    'firefly': 'يراعة',
+    'spider': 'عنكبوت',
+    'flea': 'فلي', 
+    'ant': 'نمل', 
+    'butterfly': 'فراشة',
+    'locust': 'جراد',
+    'wasp': 'دبور', 
+    'beetle': 'الخنفساء', 
+    'roach': 'روش', 
+    'fly': 'ذبابة', 
+    'mosquito': 'بعوض',
+    'bee': 'نحل'
+}
+
 # shapes
 SHAPES = ['cylinder', 'line', 'rectangle', 'triangle', 'square', 'cube', 'circle', 'round', 'oval', 'circular', 'star', 'ellipse']
+
 FR_SHAPES = ['cylindre', 'ligne', 'rectangle', 'triangle', 'carré', 'cube', 'cercle', 'rond', 'ovale', 'circulaire', 'étoile', 'ellipse']
 EN_FR_SHAPES = {
     'cylinder': 'cylindre', 
@@ -51,8 +85,25 @@ EN_FR_SHAPES = {
     'ellipse': 'ellipse'
 }
 
+AR_SHAPES = ['اسطوانة', 'خط', 'مستطيل', 'مثلث', 'مربع', 'مكعب', 'دائرة', 'مستديرة', 'بيضاوي', 'دائري', 'نجمة', 'بيضاوي']
+EN_AR_SHAPES = {
+    'cylinder': 'اسطوانة', 
+    'line': 'خط', 
+    'rectangle': 'مستطيل', 
+    'triangle': 'مثلث', 
+    'square': 'مربع',
+    'cube': 'مكعب', 
+    'circle': 'دائرة', 
+    'round': 'مستديرة', 
+    'oval': 'بيضاوي', 
+    'circular': 'دائري', 
+    'star': 'نجمة', 
+    'ellipse': 'بيضاوي'
+}
+
 # weather
 WEATHER = ['wind', 'precipitation', 'rain', 'tornado', 'fog', 'rainy', 'drought', 'sunny', 'snow', 'hail', 'cloud', 'cloudy']
+
 FR_WEATHER = ['vent', 'précipitation', 'pluie', 'tornade', 'brouillard', 'pluvieux', 'sécheresse', 'ensoleillé', 'neige', 'grêle', 'nuage', 'nuageux']
 EN_FR_WEATHER = {
     'wind': 'vent',
@@ -69,8 +120,25 @@ EN_FR_WEATHER = {
     'cloudy': 'nuageux'
 }
 
+AR_WEATHER = ['رياح', 'التساقط', 'مطر', 'اعصار', 'ضباب', 'الامطار', 'جفاف', 'مشمس', 'ثلج', '', 'سحابة', 'غائم']
+EN_AR_WEATHER = {
+    'wind': 'رياح', 
+    'precipitation': 'التساقط', 
+    'rain': 'مطر', 
+    'tornado': 'اعصار', 
+    'fog': 'ضباب', 
+    'rainy': 'الامطار', 
+    'drought': 'جفاف',
+    'sunny': 'مشمس', 
+    'snow': 'ثلج', 
+    'hail': '',
+    'cloud': 'سحابة', 
+    'cloudy': 'غائم'
+}
+
 # food
 FOOD = ['ham', 'spaghetti', 'cheese', 'salad', 'chocolate', 'steak', 'pasta', 'soup', 'butter', 'yogurt', 'noodles', 'bread']
+
 FR_FOOD = ['jambon', 'spaghetti', 'fromage', 'salade', 'chocolat', 'steak', 'pâtes', 'soupe', 'beurre', 'yaourt', 'nouilles', 'pain']
 EN_FR_FOOD = {
     'ham': 'jambon', 
@@ -87,8 +155,25 @@ EN_FR_FOOD = {
     'bread': 'pain'
 }
 
+AR_FOOD = ['هام', 'السباغيتي', 'جبنة', 'سلطة', 'شوكولاتة', 'ستيك', 'باستا', 'حساء', 'زبدة', 'الزبادي', 'معكرونة', 'خبز']
+EN_AR_FOOD = {
+    'ham': 'هام', 
+    'spaghetti': 'السباغيتي', 
+    'cheese': 'جبنة', 
+    'salad': 'سلطة', 
+    'chocolate': 'شوكولاتة',  
+    'steak': 'ستيك', 
+    'pasta': 'باستا', 
+    'soup': 'حساء', 
+    'butter': 'زبدة',
+    'yogurt': 'الزبادي', 
+    'noodles': 'معكرونة', 
+    'bread': 'خبز'
+}
+
 # birds
 BIRDS = ['robin', 'goose', 'ostrich', 'owl', 'parrot', 'falcon', 'eagle', 'flamingo', 'pigeon', 'finch', 'swan', 'penguin']
+
 FR_BIRDS = ['robin', 'oie', 'autruche', 'hibou', 'perroquet', 'faucon', 'aigle', 'flamingo', 'pigeon', 'finch', 'cygne', 'manchot']
 EN_FR_BIRDS = {
     'robin': 'robin', 
@@ -105,8 +190,25 @@ EN_FR_BIRDS = {
     'penguin': 'manchot'
 }
 
+AR_BIRDS = ['روبن', 'أوز', 'النعامة', 'بومة', 'ببغاء', 'صقر', 'نسر', 'فلامنغو', 'حمامة', 'فينش', 'البجعة', 'بطريق']
+EN_AR_BIRDS = {
+    'robin': 'روبن', 
+    'goose': 'أوز', 
+    'ostrich': 'النعامة', 
+    'owl': 'بومة', 
+    'parrot': 'ببغاء', 
+    'falcon': 'صقر', 
+    'eagle': 'نسر', 
+    'flamingo': 'فلامنغو',
+    'pigeon': 'حمامة', 
+    'finch': 'فينش', 
+    'swan': 'البجعة', 
+    'penguin': 'بطريق'
+}
+
 # mammals
 MAMMALS = ['rabbit', 'beaver', 'horse', 'bear', 'deer', 'dog', 'elephant', 'camel', 'giraffe', 'raccoon', 'sheep', 'cow']
+
 FR_MAMMALS = ['lapin', 'castor', 'cheval', 'ours', 'cerf', 'chien', 'éléphant', 'chameau', 'girafe', 'raton', 'mouton', 'vache']
 EN_FR_MAMMALS = {
     'rabbit': 'lapin', 
@@ -123,8 +225,25 @@ EN_FR_MAMMALS = {
     'cow': 'vache'
 }
 
+AR_MAMMALS = ['الارنب', 'قندس', 'حصان', 'دب', 'غزال', 'كلب', 'فيل', 'جمل', 'الزرافة', 'راكون', 'خروف', 'بقرة']
+EN_AR_MAMMALS = {
+    'rabbit': 'الارنب', 
+    'beaver': 'قندس', 
+    'horse': 'حصان',  
+    'bear': 'دب', 
+    'deer': 'غزال',
+    'dog': 'كلب', 
+    'elephant': 'فيل', 
+    'camel': 'جمل', 
+    'giraffe': 'الزرافة', 
+    'raccoon': 'راكون', 
+    'sheep': 'خروف', 
+    'cow': 'بقرة',
+}
+
 # colours
 COLOURS = ['purple', 'blue', 'white', 'orange', 'green', 'red', 'yellow', 'cyan', 'mauve', 'magenta', 'beige', 'azure']
+
 FR_COLOURS = ['pourpre', 'bleu', 'blanc', 'orange', 'vert', 'rouge', 'jaune', 'cyan', 'mauve', 'magenta', 'beige', 'azur']
 EN_FR_COLOURS = {
     'purple': 'pourpre',
@@ -141,8 +260,25 @@ EN_FR_COLOURS = {
     'azure': 'azur'
 }
 
+AR_COLOURS = ['البنفسجي', 'ازرق', 'ابيض', 'برتقالي', 'اخضر', 'احمر', 'اصفر', 'ازرق', 'خبازي', 'أرجواني', 'البيج', 'لازوردي']
+EN_AR_COLOURS = {
+    'purple': 'البنفسجي', 
+    'blue': 'ازرق', 
+    'white': 'ابيض', 
+    'orange': 'برتقالي', 
+    'green': 'اخضر', 
+    'red': 'احمر',
+    'yellow': 'اصفر', 
+    'cyan': 'ازرق',
+    'mauve': 'خبازي',
+    'magenta': 'أرجواني',
+    'beige': 'البيج', 
+    'azure': 'لازوردي'
+}
+
 # flowers
 FLOWERS = ['dandelion', 'iris', 'petunia', 'orchid', 'daisy', 'sunflower', 'tulip', 'poppy', 'violet', 'lotus', 'lily', 'rose']
+
 FR_FLOWERS = ['pissenlit', 'iris', 'pétunia', 'orchidée', 'marguerite', 'tournesol', 'tulipe', 'pavot', 'violet', 'lotus', 'lys', 'rose']
 EN_FR_FLOWERS = {
     'dandelion': 'pissenlit', 
@@ -159,8 +295,25 @@ EN_FR_FLOWERS = {
     'rose': 'rose',
 }
 
+AR_FLOWERS = ['الهندباء', 'ايرس', 'بطونية', 'خصي', 'دايزي', '', 'الخزامى', 'خشخاش', 'فيوليت', 'لوتس', 'ليلى', 'وردة']
+EN_AR_FLOWERS = {
+    'dandelion': 'الهندباء', 
+    'iris': 'ايرس', 
+    'petunia': 'بطونية',
+    'orchid': 'خصي',
+    'daisy': 'دايزي', 
+    'sunflower': '',
+    'tulip': 'الخزامى', 
+    'poppy': 'خشخاش', 
+    'violet': 'فيوليت', 
+    'lotus': 'لوتس', 
+    'lily': 'ليلى', 
+    'rose': 'وردة'
+}
+
 # countries
 COUNTRIES = ['china', 'america', 'switzerland', 'norway', 'denmark', 'italy', 'england', 'argentina', 'finland', 'spain', 'france', 'canada']
+
 FR_COUNTRIES = ['chine', 'amérique', 'suisse', 'norvège', 'danemark', 'italie', 'angleterre', 'argentine', 'finlande', 'espagne', 'france', 'canada']
 EN_FR_COUNTRIES = {
     'china': 'chine', 
@@ -177,8 +330,25 @@ EN_FR_COUNTRIES = {
     'canada': 'canada'
 }
 
+AR_COUNTRIES = ['الصين', 'امريكا', 'سويسرا', 'النرويج', 'الدنمارك', 'ايطاليا', 'انكلترا', 'الارجنتين', 'فنلندا', 'اسبانيا', 'فرنسا', 'كندا']
+EN_AR_COUNTRIES = {
+    'china': 'الصين', 
+    'america': 'امريكا',
+    'switzerland': 'سويسرا', 
+    'norway': 'النرويج', 
+    'denmark': 'الدنمارك', 
+    'italy': 'ايطاليا', 
+    'england': 'انكلترا', 
+    'argentina': 'الارجنتين', 
+    'finland': 'فنلندا', 
+    'spain': 'اسبانيا', 
+    'france': 'فرنسا', 
+    'canada': 'كندا'
+}
+
 # sports
 SPORTS = ['snowboarding', 'football', 'badminton', 'tennis', 'soccer', 'volleyball', 'skating', 'cycling', 'golf', 'baseball', 'swimming', 'hockey']
+
 FR_SPORTS = ['snowboard', 'football', 'badminton', 'tennis', 'football', 'volley', 'patinage', 'cyclisme', 'golf', 'baseball', 'nager', 'hockey']
 EN_FR_SPORTS = {
     'snowboarding': 'snowboard', 
@@ -195,8 +365,25 @@ EN_FR_SPORTS = {
     'hockey': 'hockey'
 }
 
+# a lot of words are missing one-word translations
+# EN_AR_SPORTS = {
+#     'snowboarding': '',
+#     'football': '',
+#     'badminton': '',
+#     'tennis': 'تنس', 
+#     'soccer': '',
+#     'volleyball': '',
+#     'skating': 'تزلج',
+#     'cycling': '',
+#     'golf': 'جولف', 
+#     'baseball': 'بيسبول', 
+#     'swimming': 'سباحة', 
+#     'hockey': 'هوكي'
+# }
+
 # vehicles
 VEHICLES = ['truck', 'airplane', 'boat', 'bicycle', 'car', 'van', 'tractor', 'canoe', 'bus', 'taxi', 'train', 'motorcycle']
+
 FR_VEHICLES = ['camion', 'avion', 'bateau', 'vélo', 'voiture', 'camionnette', 'tracteur', 'canoë', 'bus', 'taxi', 'train', 'moto']
 EN_FR_VEHICLES = {
     'truck': 'camion', 
@@ -211,4 +398,20 @@ EN_FR_VEHICLES = {
     'taxi': 'taxi', 
     'train': 'train', 
     'motorcycle': 'moto'
+}
+
+AR_VEHICLES = ['شاحنة', 'طائرة', 'قارب', 'دراجة', 'سيارة', 'فان', 'جرار', 'زورق', 'حافلة', 'تاكسي', 'قطار', 'دراجة']
+EN_AR_VEHICLES = {
+    'truck': 'شاحنة', 
+    'airplane': 'طائرة', 
+    'boat': 'قارب', 
+    'bicycle': 'دراجة', 
+    'car': 'سيارة', 
+    'van': 'فان', 
+    'tractor': 'جرار', 
+    'canoe': 'زورق', 
+    'bus': 'حافلة', 
+    'taxi': 'تاكسي', 
+    'train': 'قطار', 
+    'motorcycle': 'دراجة'
 }
