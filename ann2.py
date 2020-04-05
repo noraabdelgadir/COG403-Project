@@ -11,6 +11,7 @@ from sklearn.metrics import precision_score, recall_score, accuracy_score
 #from translate import get_translations
 from sklearn.preprocessing import OneHotEncoder
 import keras
+from keras import optimizers 
 
 MODEL = "word2vec"
 #PATH = "/Users/shydebnath/Documents/glove.6B/glove.6B.50d.txt"
@@ -109,6 +110,7 @@ for i in cat:
     label+=1
 print(len(y_label))
 
+# modify: # hidden layer units, learning rate, num epochs, activation functions
 # MODEL 
 X = df 
 y = keras.utils.to_categorical(y_label)
@@ -136,8 +138,8 @@ def precision(y_true, y_pred):
 #     precision = precision(y_true, y_pred)
 #     recall = recall(y_true, y_pred)
 #     return 2*((precision*recall)/(precision+recall+K.epsilon()))
-
-model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy', 'categorical_accuracy', precision, recall])
+optim = optimizers.Adam(learning_rate=0.0008, beta_1=0.9, beta_2=0.999, amsgrad=False)
+model.compile(loss='categorical_crossentropy', optimizer=optim, metrics=['accuracy', 'categorical_accuracy', precision, recall])
 
 model.fit(X, y, epochs=250, batch_size=10, verbose=1) 
 
@@ -152,6 +154,7 @@ for key, frcat in zip(x_test_dict.keys(), translation):
         embs = get_embeddings(MODEL, x_test_dict[key],lang='fr', cat=frcat)
     else:
         embs = get_embeddings(MODEL, x_test_dict[key], lang='fr', cat=frcat).transpose()
+        print(embs.shape[0])
     df_xtest = df_xtest.append(embs)
     for _ in range(embs.shape[0]):
         true.append(catmap[key])
@@ -161,6 +164,7 @@ print(len(predictions))
 y_true_tr = true
 y_true_class = trueclass
 print(len(y_true_class), len(y_true_tr))
+print("true", set(y_true_class))
 df_pred = pd.DataFrame()
 df_pred['true_class'] = y_true_class
 df_pred['true_label'] = y_true_tr
