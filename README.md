@@ -77,7 +77,7 @@ From the root of the project folder, run:
 ```sh
 python3 methods/ann.py
 ```
-The following parameters can be modified in the model initialization:
+The following parameters can be modified in the network initialization:
 
 ```python
 self.layer1 = 128
