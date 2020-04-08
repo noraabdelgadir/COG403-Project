@@ -11,8 +11,9 @@ Despite how bilingualism is common throughout the world, with around half of the
 - Languages used are English, French, and Arabic. 
 - Word embedding models used are fastText, Word2Vec, GLoVE, and BERT.
 - Categories can be seen in [methods/helpers/categories.py](https://github.com/noraabdelgadir/COG403-Project/blob/master/methods/helpers/categories.py).
+- Category members can be retrieved from [ConceptNet](http://conceptnet.io/)
 
-### Preprocessing
+### Dependencies 
 
 Install the required modules by running:
 
@@ -75,6 +76,16 @@ From the root of the project folder, run:
 
 ```sh
 python3 methods/ann.py
+```
+The following parameters can be modified in the model initialization:
+
+```python
+self.layer1 = 128
+self.layer2 = 64
+self.output = 11
+self.learning_rate = 2e-5
+self.activation1 = 'relu'
+self.activation2 = 'relu'
 ```
 
 ## Members
