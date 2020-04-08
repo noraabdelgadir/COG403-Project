@@ -12,7 +12,7 @@ class Embedding(object):
         self.word_list = word_list
         self.model_path = model_path
     
-    # return embeddings for a 
+    # return embeddings based on the words and model
     def get_embeddings(self):
         raise NotImplementedError
 
