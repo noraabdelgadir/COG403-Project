@@ -87,10 +87,14 @@ class NN:
             self.dim = 768
         else:
             self.dim = 300
-        self.layer1 = 150
-        self.layer2 = 50
+        self.layer1 = 128
+        self.layer2 = 64
         self.output = 11
         self.learning_rate = 2e-5
+        self.activation1 = 'relu'
+        self.activation2 = 'relu'
+
+        print("MODEL: {} + layer1: {} + layer2: {} + LR: {}".format(self.model, self.layer1, self.layer2, self.learning_rate))
         # setting variables
         self.set_members()
         self.set_translated_members()
@@ -98,6 +102,8 @@ class NN:
         print(self.labels)
         self.set_data_members()
         self.train_test_split(self.data)
+        print('train size: ', self.train_set.shape)
+        print('test size: ', self.test_set.shape)
         model = self.train()
         predictions = self.predict(model)
         self.evaluate(predictions)
@@ -140,12 +146,13 @@ class NN:
     def set_labels_and_embeddings(self):
         for cat in self.members:
             tr_cat = EN_FR_CATEGORIES[cat] if self.language == 'fr' else EN_AR_CATEGORIES[cat]
-            en_path = "models/" + self.model + "/categories/en/" + cat + ".txt"
-            tr_path = "models/" + self.model + "/categories/" + self.language + "/" + cat + ".txt"
+            en_path = "/Users/shydebnath/Documents/projects/COG403-Project/" + "models/" + self.model + "/categories/en/" + cat + ".txt"
+            tr_path = "/Users/shydebnath/Documents/projects/COG403-Project/" + "models/" + self.model + "/categories/" + self.language + "/" + cat + ".txt"
             if self.model == 'glove':
-                en_path = "models/glove/glove.6B.50d.txt"
-                tr_path = "models/glove/glove.6B.50d.txt"
-            
+                en_path = "/Users/shydebnath/Documents/projects/COG403-Project/models/glove/glove.6B/glove.6B.50d.txt"
+                en_path = "/Users/shydebnath/Documents/projects/COG403-Project/models/glove/multilingual_embeddings/multilingual_embeddings.en"
+                tr_path = "/Users/shydebnath/Documents/projects/COG403-Project/models/glove/glove.6B/glove.6B.50d.txt"
+                tr_path = "/Users/shydebnath/Documents/projects/COG403-Project/models/glove/multilingual_embeddings/multilingual_embeddings." + self.language
             en_word_emb = EMBEDDING_MODEL[self.model](self.members[cat], en_path).get_embeddings()
             tr_word_emb = EMBEDDING_MODEL[self.model](self.translated_members[tr_cat], tr_path).get_embeddings()
             
@@ -248,11 +255,12 @@ class NN:
     def train(self):
         X = self.train_set.iloc[:,2:]
         y = keras.utils.to_categorical(self.train_set['label'])
+        optim = keras.optimizers.Adam(learning_rate=self.learning_rate, beta_1=0.9, beta_2=0.999, amsgrad=False)
         model = Sequential()
-        model.add(Dense(self.layer1, input_dim=self.dim, activation='softmax'))
-        model.add(Dense(self.layer2, activation='softmax'))
+        model.add(Dense(self.layer1, input_dim=self.dim, activation=self.activation1))
+        model.add(Dense(self.layer2, activation=self.activation2))
         model.add(Dense(self.output, activation='sigmoid'))
-        model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy', 'categorical_accuracy', self.precision, self.recall])
+        model.compile(loss='categorical_crossentropy', optimizer=optim, metrics=['accuracy', 'categorical_accuracy', self.precision, self.recall])
         model.fit(X, y, epochs=250, batch_size=10, verbose=1)       
 
         return model 
