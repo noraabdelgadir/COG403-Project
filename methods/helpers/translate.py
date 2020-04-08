@@ -1,3 +1,4 @@
+# create a translation dictionary for the lang
 def translate(lang):
     f = open("translations/en-" + lang + ".txt", "r")
     splitter = ' ' if lang == 'fr' else '\t'
@@ -13,9 +14,10 @@ def translate(lang):
     
     return translations
 
-en_fr = translate('fr')
-en_ar = translate('ar')
+en_fr = translate('fr') # french dictionary
+en_ar = translate('ar') # arabic dictionary
 
+# get translations of a list words in a language
 def get_translations(lang, words):
     translations = en_fr if lang == 'fr' else en_ar
     translated = {}

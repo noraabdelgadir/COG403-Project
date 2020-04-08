@@ -1,6 +1,8 @@
 from helpers.embeddings import Word2VecMuse, Bert, Glove
 from helpers.categories import *
 
+# Helper constants used for the methods
+
 LANGUAGES = {'English': 'en', 'French': 'fr', 'Arabic': 'ar'}
 MODELS = ['fastText', 'Word2Vec', 'Bert', 'GLoVE']
 EMBEDDING_MODEL = {

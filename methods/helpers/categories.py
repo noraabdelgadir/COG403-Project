@@ -1,3 +1,5 @@
+# this file contains constants for all categories in the three languages
+
 # all categories
 CATEGORIES = ['insect', 'shape', 'weather', 'food', 'bird', 'mammal', 'colour', 'flower', 'country', 'vehicle', 'sport']
 
@@ -56,7 +58,7 @@ AR_EN_CATEGORIES = {
 }
 
 # insects
-INSECTS = ['firefly', 'spider', 'flea', 'ant', 'butterfly', 'locust', 'wasp', 'beetle', 'roach', 'fly', 'pupa', 'bee']
+INSECTS = ['firefly', 'spider', 'flea', 'ant', 'butterfly', 'locust', 'wasp', 'beetle', 'roach', 'fly', 'mosquito', 'bee']
 
 FR_INSECTS = ['lucioles', 'araignée', 'puce', 'fourmi', 'papillon', 'criquet', 'guêpe', 'scarabée', 'cafard', 'mouche', 'moustique', 'abeille']
 EN_FR_INSECTS = {
@@ -423,22 +425,6 @@ EN_FR_SPORTS = {
     'swimming': 'nager', 
     'hockey': 'hockey'
 }
-
-# a lot of words are missing one-word translations
-# EN_AR_SPORTS = {
-#     'snowboarding': '',
-#     'football': '',
-#     'badminton': '',
-#     'tennis': 'تنس', 
-#     'soccer': '',
-#     'volleyball': '',
-#     'skating': 'تزلج',
-#     'cycling': '',
-#     'golf': 'جولف', 
-#     'baseball': 'بيسبول', 
-#     'swimming': 'سباحة', 
-#     'hockey': 'هوكي'
-# }
 
 # list with all categories for each language
 CATEGORIES_LIST = [INSECTS, SHAPES, WEATHER, FOOD, BIRDS, MAMMALS, COLOURS, FLOWERS, COUNTRIES, VEHICLES, SPORTS]

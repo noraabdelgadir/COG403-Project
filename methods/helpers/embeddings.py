@@ -5,15 +5,19 @@ import io
 
 class Embedding(object):
     
+    # initialization function
+    # word_list is the list of words the embeddings are to be retrived for
+    # model_path is the path to where the embeddings are stored
     def __init__(self, word_list, model_path):
         self.word_list = word_list
         self.model_path = model_path
     
+    # return embeddings for a 
     def get_embeddings(self):
         raise NotImplementedError
 
 class Glove(Embedding):
-
+    # get embeddings from GLoVE
     def get_embeddings(self):
         embeddings_dict = {}
         with open(self.model_path, "r", encoding="utf-8") as f:
@@ -22,12 +26,12 @@ class Glove(Embedding):
                 word = values[0]
                 vector = np.asarray(values[1:], "float32")
                 if word in self.word_list:
-                    embeddings_dict[word] =vector
-        vectors = list(embeddings_dict.values())
+                    embeddings_dict[word] = vector
         return embeddings_dict
 
 class Bert(Embedding):
-    # need to start bert-
+    # get embeddings from BERT
+    # make sure BERT is started
     def get_embeddings(self):
         bc = BertClient()
         array = bc.encode(self.word_list)
@@ -35,12 +39,12 @@ class Bert(Embedding):
         return array 
 
 class Word2VecMuse(Embedding):
-
+    # get embeddings from Word2Vec and fastText
     def get_embeddings(self):
         word_emb = {}
 
-        with io.open(self.model_path, 'r', encoding='utf-8', newline='\n', errors='ignore') as f:
-            next(f)
+        with io.open(self.model_path, 'r', encoding='utf-8', newline='\n') as f:
+            next(f) # skip first line with number of embeddings and dimension
             for i, line in enumerate(f):
                 word, vect = line.rstrip().split(' ', 1)
                 vect = np.fromstring(vect, sep=' ')
@@ -51,19 +55,4 @@ class Word2VecMuse(Embedding):
 
         return word_emb
 
-if __name__ == "__main__":
-    
-    category = "vehicle"
-    # translation = "véhicule"
-
-    # word_list = muse_check(get_isa(category))
-    # word_list.append(translation)
-
-
-    # # example 
-    # path = "models/glove.6B/glove.6B.50d.txt"
-    # print(word_list)
-    
-    # b = Glove(word_list, path)
-    # e = b.get_embeddings()
   
