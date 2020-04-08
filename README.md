@@ -47,7 +47,7 @@ I:WORKER-0:[__i:gen:559]:ready and listening!
 I:VENTILATOR:[__i:_ru:164]:all set, ready to serve request!
 ```
 
-### Models
+### Methods
 
 #### K-means clustering
 
