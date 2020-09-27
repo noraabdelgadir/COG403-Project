@@ -5,3 +5,5 @@ sklearn
 matplotlib
 bert_serving
 keras
+bert-serving-server
+bert-serving-client

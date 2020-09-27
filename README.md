@@ -38,8 +38,6 @@ The categorized embeddings are saved under [models/glove/categories](https://git
 - download the multilingual model from: https://storage.googleapis.com/bert_models/2018_11_23/multi_cased_L-12_H-768_A-12.zip
 - run the following to start the bert server:
 ```sh
-pip install bert-serving-server
-pip install bert-serving-client
 bert-serving-start -model_dir /path/to/model/multi_cased_L-12_H-768_A-12  -num_worker=1
 ```
 Should see the following when it is ready to recieve requests:
@@ -87,6 +85,8 @@ self.learning_rate = 2e-5
 self.activation1 = 'relu'
 self.activation2 = 'relu'
 ```
+
+Note: the neural network currently only works with English and French.
 
 ## Members
 

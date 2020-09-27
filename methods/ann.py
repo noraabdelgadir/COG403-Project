@@ -85,13 +85,13 @@ class NN:
     def set_labels_and_embeddings(self):
         for cat in self.members:
             tr_cat = EN_FR_CATEGORIES[cat] if self.language == 'fr' else EN_AR_CATEGORIES[cat]
-            en_path = "/Users/shydebnath/Documents/projects/COG403-Project/" + "models/" + self.model + "/categories/en/" + cat + ".txt"
-            tr_path = "/Users/shydebnath/Documents/projects/COG403-Project/" + "models/" + self.model + "/categories/" + self.language + "/" + cat + ".txt"
+            en_path = "../models/" + self.model + "/categories/en/" + cat + ".txt"
+            tr_path = "../models/" + self.model + "/categories/" + self.language + "/" + cat + ".txt"
             if self.model == 'glove':
-                en_path = "/Users/shydebnath/Documents/projects/COG403-Project/models/glove/glove.6B/glove.6B.50d.txt"
-                en_path = "/Users/shydebnath/Documents/projects/COG403-Project/models/glove/multilingual_embeddings/multilingual_embeddings.en"
-                tr_path = "/Users/shydebnath/Documents/projects/COG403-Project/models/glove/glove.6B/glove.6B.50d.txt"
-                tr_path = "/Users/shydebnath/Documents/projects/COG403-Project/models/glove/multilingual_embeddings/multilingual_embeddings." + self.language
+                en_path = "../models/glove/glove.6B/glove.6B.50d.txt"
+                en_path = "../models/glove/multilingual_embeddings/multilingual_embeddings.en"
+                tr_path = "../models/glove/glove.6B/glove.6B.50d.txt"
+                tr_path = "../models/glove/multilingual_embeddings/multilingual_embeddings." + self.language
             en_word_emb = EMBEDDING_MODEL[self.model](self.members[cat], en_path).get_embeddings()
             tr_word_emb = EMBEDDING_MODEL[self.model](self.translated_members[tr_cat], tr_path).get_embeddings()
             
@@ -161,7 +161,6 @@ class NN:
             df_type = df[df['label']==t]
             classes.append(df_type['class'].unique())
             num_ex.append(len(df_type))
-            #acc.append(accuracy_score(df_type['true_label'], df_type['pred_label']))
         
             tp = len(df[(df['label']==t) & (df['pred_label']==t)])
             fp = len(df[(df['label']!=t) & (df['pred_label']==t)])
@@ -205,26 +204,7 @@ class NN:
         print("OVERALL ACCURACY: ", accuracy)
 
 if __name__ == "__main__":
-
-    languages = ['French', 'Arabic']
-    # questions = [
-    # inquirer.List('language',
-    #             message="Which language do you want to test with English?",
-    #             choices=languages,
-    #         ),
-    # inquirer.Checkbox('categories',
-    #             message="Which categories do you want to include?",
-    #             choices=CATEGORIES,
-    #         ),
-    # inquirer.List('model',
-    #             message="Which word embedding model would you like to use?",
-    #             choices=MODELS,
-    #         ),
-    # ]
-    # answers = inquirer.prompt(questions)
-
     language = 'French'
     cats = ['insect', 'shape', 'weather', 'food', 'bird', 'mammal', 'colour', 'flower', 'country', 'vehicle', 'sport']
     model = 'Bert'
-    # n = NN(answers['language'], answers['categories'], answers['model'])
     n = NN(language, cats, model)
